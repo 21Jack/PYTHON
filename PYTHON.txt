@@ -1,1 +1,147 @@
 python之旅开始.
+
+GIT 的使用
+
+1.GIT安装 
+    Windows
+    MAC
+  查看是否安装成功  找到安装目录  Git Bash(黑屏终端:仿制Linux)
+
+  配置GITHUB账号邮箱
+    git config --global user.name "21Jack"
+    git config --global user.name "709585992@qq.com"
+
+
+2.
+   测试版本库 时空穿梭
+
+    1创建版本库 
+	在一个合适的地方,创建一个空目录
+	cd进改目录
+	使用 git init 命令把这个目录变成Git可以管理的仓库
+    2把文件添加到版本库中
+	在仓库中创建一个TXT文件 添加 
+	把文件添加到仓库 git add .
+	把问价提交到仓库 git commit -m "注释信息"
+    3git status
+	改命令可以让我们时刻掌握仓库当前状态
+	修改TXT文件内容
+	git status
+    4git diff 
+	改命令可以查看修改内如
+
+    5git log
+	改命令可以显示从最近到最远的提交日志
+    	
+	git log --pretty=oneline
+
+    	
+    6版本回退
+    	git reset --HEAD^
+    	git reset --HEAD^^
+    	git reset --HEAD～100
+    	git reset --hard "具体版本号"
+    	git status
+    	
+    7git reflog   记录每一次命令
+    
+
+3. 工作区/版本区
+
+    工作区  仓库所在目录
+    版本库 .git目录是Git的版本库
+	1暂存区  2自动创建一个分支master  3指向master的指针(HEAD)
+
+    仓库目录{(工作区[文件代码].git目录[<缓存区>)<版本区>]}
+	文件代码add到缓存区commit到版本区
+
+    git checkout -- <文件名> 撤销操作 
+	1没add放到暂存区撤销和版本库一样的状态
+	2已经add放到暂存区,又修改文件,撤销修改就会回到添加到暂存区后的状态
+	3总之,就是让这个文件回到最后一次 git commit 或者git add时的状态
+	
+
+3.  
+    创建SSH Key 
+    SSH 生成私钥密钥
+	$ ssh-keygen -t rsa -C "709585992@qq.com"
+	Enter file in which to save the key(/c/Users/Administrator/.ssh/id_rsa):
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ cd /c/Users/Administrator/ All Users/
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ cd /c/Users/Administrator/.ssh/
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ pwd
+    /c/Users/Administrator/.ssh
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ ls
+    id_rsa  id_rsa.pub
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ ls
+    id_rsa  id_rsa.pub
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ cd id_rsa
+    bash: cd: id_rsa: Not a directory
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ ll
+    total 5
+    -rw-r--r-- 1 Administrator 197121 1679 九月 25 20:59 id_rsa
+    -rw-r--r-- 1 Administrator 197121  398 九月 25 20:59 id_rsa.pub
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ cat id_rsa
+
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ cat id_rsa.pub
+
+
+    测试秘钥配置
+    Administrator@UMMMZHE4GX4KT68 MINGW64 ~/.ssh (master)
+    $ ssh -T git@github.com
+    关联仓库
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ git remote add origin git@github.com:21Jack/PYTHON.git
+
+    git fatal: 拒绝合并无关的历史 解决办法  
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ git pull origin master --allow-unrelated-histories
+    From github.com:21Jack/PYTHON
+    上推
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ git push origin master
+
+4.  从0开发现有远程库
+    git clone git@github.com:21Jack/PYTHON.git
+    git add PYTHON.txt
+    git commit PYTHON.txt -m "修改提交"
+
+    添加一个 文件 在文件中写入大文件的文件名推送到git库
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ touch .gitignore
+    
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ ls -a
+    ./  ../  .git/  .gitignore  PYTHON.txt  README.md
+    
+    Administrator@UMMMZHE4GX4KT68 MINGW64 /d/PYTHON (master)
+    $ vim .gitignore
+    
+
+
+
+
+    git add .
+    git commit . -m "第二次修改提交"
+
+    git push origin master
+    
+5.
+6.
+7.
+8.
